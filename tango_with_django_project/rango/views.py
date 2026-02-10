@@ -97,7 +97,7 @@ def add_page(request, category_name_slug):
 
 def register(request):
     registered = False
-    if request.method == 'Post':
+    if request.method == 'POST':
         user_form = UserForm(request.POST)
         profile_form = UserProfileForm(request.POST)
         if user_form.is_valid() and profile_form.is_valid():
@@ -147,7 +147,7 @@ def some_view(request):
   
 @login_required
 def restricted(request):
-    return HttpResponse("Since you're logged in, you can see this text!")
+    return HttpResponse(request, 'rango/restricted.html')
 
 @login_required
 def user_logout(request):
